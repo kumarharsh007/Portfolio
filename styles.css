@@ -47,9 +47,32 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    width: 90%;
+    max-width: 1400px;
     margin: 0 auto;
     padding: var(--container-padding);
+}
+
+/* Responsive container scaling */
+@media (min-width: 1200px) {
+    .container {
+        width: 85%;
+        max-width: 1600px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .container {
+        width: 80%;
+        max-width: 1800px;
+    }
+}
+
+@media (min-width: 1920px) {
+    .container {
+        width: 75%;
+        max-width: 2000px;
+    }
 }
 
 /* Header Styles */
@@ -193,8 +216,21 @@ body {
     position: relative;
     z-index: 2;
     text-align: center;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
+}
+
+/* Responsive hero content scaling */
+@media (min-width: 1200px) {
+    .hero-content {
+        max-width: 1000px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .hero-content {
+        max-width: 1100px;
+    }
 }
 
 .hero-title {
@@ -445,6 +481,24 @@ section {
 .image-placeholder i {
     font-size: 6rem;
     color: var(--primary-color);
+}
+
+/* Profile Photo Styling */
+.profile-photo {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+    box-shadow: var(--glow-shadow);
+    transition: all 0.3s ease;
+    filter: brightness(1.1) contrast(1.1);
+}
+
+.profile-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.4), 0 0 60px rgba(0, 255, 136, 0.2);
+    border-color: var(--secondary-color);
 }
 
 /* Experience Section */

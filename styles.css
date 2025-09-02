@@ -464,6 +464,9 @@ section {
 .about-image {
     display: flex;
     justify-content: center;
+    align-items: center;
+    max-width: 300px;
+    margin: 0 auto;
 }
 
 .image-placeholder {
@@ -484,21 +487,44 @@ section {
 }
 
 /* Profile Photo Styling */
-.profile-photo {
-    width: 300px;
-    height: 300px;
+.about-image .profile-photo {
+    width: 300px !important;
+    height: 300px !important;
+    max-width: 300px;
+    max-height: 300px;
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid var(--primary-color);
     box-shadow: var(--glow-shadow);
     transition: all 0.3s ease;
     filter: brightness(1.1) contrast(1.1);
+    display: block;
+    margin: 0 auto;
 }
 
-.profile-photo:hover {
+.about-image .profile-photo:hover {
     transform: scale(1.05);
     box-shadow: 0 0 30px rgba(0, 255, 136, 0.4), 0 0 60px rgba(0, 255, 136, 0.2);
     border-color: var(--secondary-color);
+}
+
+/* Responsive profile photo */
+@media (max-width: 768px) {
+    .about-image .profile-photo {
+        width: 250px !important;
+        height: 250px !important;
+        max-width: 250px;
+        max-height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-image .profile-photo {
+        width: 200px !important;
+        height: 200px !important;
+        max-width: 200px;
+        max-height: 200px;
+    }
 }
 
 /* Experience Section */

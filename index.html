@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harsh Swami - Product Analyst Portfolio</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/svg+xml" sizes="16x16" href="favicon-16x16.svg">
+    <link rel="shortcut icon" href="favicon.svg">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h2>Harsh Swami</h2>
+            </div>
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="#about" data-section="about">About</a></li>
+                    <li><a href="#experience" data-section="experience">Experience</a></li>
+                    <li><a href="#skills" data-section="skills">Skills</a></li>
+                    <li><a href="#projects" data-section="projects">Projects</a></li>
+                    <li><a href="#gameography" data-section="gameography">Gameography</a></li>
+                    <li><a href="#contact" data-section="contact">Contact</a></li>
+                </ul>
+                <a href="assets/HARSH_SWAMI_Resume.pdf" download="Harsh_Swami_Resume.pdf" onclick="return forceDownload(this)" class="resume-btn">
+                    <i class="fas fa-download"></i> Resume
+                </a>
+            </nav>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-background">
+            <div class="grid-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="gradient-text">Hey</span><span class="emoji-normal">👋</span><span class="gradient-text">, I'm Harsh</span>
+                </h1>
+                <h2 class="hero-subtitle">Associate Product Analyst</h2>
+                <p class="hero-description">
+                    Transforming gaming data into actionable insights at Electronic Arts. 
+                    Passionate about data-driven product decisions and player experience optimization.
+                </p>
+                <div class="hero-cta">
+                    <a href="#projects" class="cta-primary">View My Work</a>
+                    <a href="#contact" class="cta-secondary">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        As an Associate Product Analyst at Electronic Arts, I specialize in transforming complex 
+                        gaming data into strategic insights that drive product decisions. With a passion for both 
+                        analytics and gaming, I bridge the gap between player behavior and business objectives.
+                    </p>
+                    <p>
+                        My expertise lies in statistical analysis, data visualization, and product metrics that 
+                        help teams understand player engagement, retention, and monetization patterns. I believe 
+                        in data-driven storytelling that empowers teams to create better gaming experiences.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Data-Driven Insights</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-gamepad"></i>
+                            <span>Gaming Industry Expert</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-users"></i>
+                            <span>Cross-Functional Collaboration</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Experience</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <div class="experience-marker"></div>
+                    <div class="experience-content">
+                        <div class="experience-header">
+                            <h3>Associate Product Analyst</h3>
+                            <span class="company">Electronic Arts</span>
+                            <span class="duration">2023 - Present</span>
+                        </div>
+                        <ul class="experience-details">
+                            <li>Analyze player behavior data to identify optimization opportunities for game features</li>
+                            <li>Create comprehensive dashboards and reports for product teams</li>
+                            <li>Collaborate with cross-functional teams to define and track key product metrics</li>
+                            <li>Conduct A/B testing analysis to validate product hypotheses</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-marker"></div>
+                    <div class="experience-content">
+                        <div class="experience-header">
+                            <h3>Data Analyst</h3>
+                            <span class="company">Previous Company</span>
+                            <span class="duration">2022 - 2023</span>
+                        </div>
+                        <ul class="experience-details">
+                            <li>Developed automated reporting solutions reducing manual work by 60%</li>
+                            <li>Performed statistical analysis on large datasets to identify trends</li>
+                            <li>Created data visualizations for executive presentations</li>
+                            <li>Implemented data quality monitoring and validation processes</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-marker"></div>
+                    <div class="experience-content">
+                        <div class="experience-header">
+                            <h3>Junior Analyst</h3>
+                            <span class="company">Startup Company</span>
+                            <span class="duration">2021 - 2022</span>
+                        </div>
+                        <ul class="experience-details">
+                            <li>Supported senior analysts in data collection and cleaning processes</li>
+                            <li>Created basic reports and visualizations using Excel and Tableau</li>
+                            <li>Participated in data modeling and database design discussions</li>
+                            <li>Learned advanced analytics tools and methodologies</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Skills & Technologies</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Analytics & Visualization</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <span class="skill-name">Python</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">SQL</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Tableau</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Power BI</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="75"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Statistical Analysis</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <span class="skill-name">R</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="70"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Excel</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">SPSS</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="65"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">A/B Testing</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Gaming Analytics</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <span class="skill-name">Player Segmentation</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Retention Analysis</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Monetization Metrics</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Game Economy</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="70"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Player Retention Dashboard</h3>
+                        <p>Comprehensive dashboard tracking player retention metrics across multiple game titles.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Tableau</span>
+                            <span>SQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" onclick="openProjectModalGlobal('retention-dashboard')">View Details</a>
+                            <a href="https://public.tableau.com/app/profile/demo" target="_blank" class="project-link">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Player Segmentation Analysis</h3>
+                        <p>Machine learning model identifying distinct player types and spending patterns.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Scikit-learn</span>
+                            <span>Pandas</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" onclick="openProjectModalGlobal('player-segmentation')">View Details</a>
+                            <a href="https://github.com/demo/player-segmentation" target="_blank" class="project-link">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>A/B Testing Framework</h3>
+                        <p>Automated framework standardizing A/B test evaluation and statistical analysis.</p>
+                        <div class="project-tech">
+                            <span>R</span>
+                            <span>Power BI</span>
+                            <span>Statistics</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" onclick="openProjectModalGlobal('ab-testing')">View Details</a>
+                            <a href="#" class="project-link" onclick="openProjectModalGlobal('ab-testing-docs')">Documentation</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Revenue Optimization Model</h3>
+                        <p>Predictive model optimizing in-game purchase pricing and promotional strategies.</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>TensorFlow</span>
+                            <span>BigQuery</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" onclick="openProjectModalGlobal('revenue-optimization')">View Details</a>
+                            <a href="#" class="project-link" onclick="openProjectModalGlobal('revenue-case-study')">Case Study</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gameography Section -->
+    <section class="gameography" id="gameography">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Gameography</h2>
+                <div class="section-line"></div>
+                <p class="section-subtitle">Games I've contributed to through data analysis and insights</p>
+            </div>
+            <div class="games-grid">
+                <div class="game-card">
+                    <div class="game-image">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <div class="game-info">
+                        <h3>FIFA 24</h3>
+                        <p class="game-role">Player Engagement Analysis</p>
+                        <p class="game-description">Analyzed player progression and Ultimate Team engagement metrics to optimize pack pricing and reward structures.</p>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <div class="game-image">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <div class="game-info">
+                        <h3>Apex Legends</h3>
+                        <p class="game-role">Battle Pass Analytics</p>
+                        <p class="game-description">Provided insights on battle pass completion rates and seasonal content engagement to improve player retention.</p>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <div class="game-image">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="game-info">
+                        <h3>Need for Speed</h3>
+                        <p class="game-role">Monetization Strategy</p>
+                        <p class="game-description">Analyzed vehicle purchase patterns and customization spending to optimize in-game economy and pricing models.</p>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <div class="game-image">
+                        <i class="fas fa-football-ball"></i>
+                    </div>
+                    <div class="game-info">
+                        <h3>Madden NFL 24</h3>
+                        <p class="game-role">User Experience Metrics</p>
+                        <p class="game-description">Tracked gameplay session lengths and mode preferences to inform feature development and UI improvements.</p>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <div class="game-image">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <div class="game-info">
+                        <h3>The Sims 4</h3>
+                        <p class="game-role">Content Engagement</p>
+                        <p class="game-description">Evaluated DLC performance and player content creation patterns to guide expansion pack development strategies.</p>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <div class="game-image">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="game-info">
+                        <h3>Star Wars: Squadrons</h3>
+                        <p class="game-role">Competitive Analytics</p>
+                        <p class="game-description">Analyzed multiplayer match data and ranking systems to balance gameplay and improve competitive experience.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Let's Connect</h2>
+                <div class="section-line"></div>
+                <p class="section-subtitle">Ready to discuss your next project or opportunity?</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <a href="mailto:harsh.swami.demo@email.com" class="contact-link">harsh.swami.demo@email.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <div>
+                            <h4>LinkedIn</h4>
+                            <a href="https://linkedin.com/in/harsh-swami-demo" target="_blank" class="contact-link">linkedin.com/in/harsh-swami-demo</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <div>
+                            <h4>GitHub</h4>
+                            <a href="https://github.com/harsh-swami-demo" target="_blank" class="contact-link">github.com/harsh-swami-demo</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>San Francisco, CA</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Harsh Swami. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/harsh-swami-demo" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/harsh-swami-demo" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="mailto:harsh.swami.demo@email.com" title="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-nav-inline" id="prevProjectInline" onclick="navigateProject(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="modal-title-section">
+                    <h2 class="modal-title" id="modalTitle">Project Title</h2>
+                    <p class="modal-subtitle" id="modalSubtitle">Project subtitle</p>
+                </div>
+                <div class="modal-header-controls">
+                    <span class="modal-counter-inline" id="projectCounterInline">1 / 4</span>
+                    <button class="modal-nav-inline" id="nextProjectInline" onclick="navigateProject(1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <button class="modal-close" onclick="closeProjectModal()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Dynamic content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

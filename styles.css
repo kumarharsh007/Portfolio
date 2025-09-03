@@ -93,6 +93,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 20px;
+    height: 70px;
 }
 
 .logo h2 {
@@ -1040,13 +1041,18 @@ section {
     gap: 4rem;
     max-width: 1000px;
     margin: 0 auto;
+    align-items: start;
+}
+
+.contact-info {
+    padding: 0;
 }
 
 .contact-item {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.70rem;
     padding: 1rem;
     background: var(--accent-bg);
     border-radius: var(--border-radius);
@@ -1205,37 +1211,103 @@ section {
 
 /* Mobile Navigation and Responsive Design */
 @media (max-width: 768px) {
+    body {
+        padding-top: 60px;
+    }
+    
+    .hero {
+        min-height: calc(100vh - 60px);
+        padding-top: 0;
+    }
+    
+    .hero-content {
+        padding: 1rem;
+        max-width: 100%;
+    }
+    
+    .header .container {
+        padding: 0.75rem 15px;
+        height: 60px;
+    }
+    
     .nav {
         position: fixed;
-        top: 100%;
+        top: -350px;
         left: 0;
         right: 0;
         background: rgba(10, 10, 10, 0.98);
         backdrop-filter: blur(10px);
         flex-direction: column;
-        padding: 2rem;
+        padding: 1rem;
         transition: top 0.3s ease;
         border-top: 1px solid rgba(0, 255, 136, 0.2);
+        border-bottom: 1px solid rgba(0, 255, 136, 0.2);
+        z-index: 999;
+        height: auto;
+        max-height: 350px;
     }
     
     .nav.mobile-nav-open {
-        top: 70px;
+        top: 60px;
     }
     
     .nav-links {
         flex-direction: column;
-        gap: 1.5rem;
-        margin-bottom: 2rem;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+        align-items: center;
+        width: 100%;
     }
     
     .nav-links a {
-        font-size: 1.1rem;
-        padding: 0.5rem 0;
+        font-size: 1rem;
+        padding: 0.75rem 0;
         border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+        width: 100%;
+        text-align: center;
+        display: block;
+    }
+    
+    .resume-btn {
+        margin-top: 0.5rem;
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+        align-self: center;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    /* All sections get proper spacing from fixed header */
+    .section {
+        padding-top: 80px;
+    }
+    
+    /* Mobile typography fixes */
+    .hero-title {
+        font-size: clamp(1.8rem, 8vw, 2.5rem) !important;
+        white-space: normal !important;
+        line-height: 1.2 !important;
+        text-align: center;
+        word-break: keep-all;
+        overflow-wrap: break-word;
+    }
+    
+    .hero-subtitle {
+        font-size: clamp(1rem, 4vw, 1.2rem) !important;
+        text-align: center;
+    }
+    
+    .hero-description {
+        font-size: 0.9rem !important;
+        line-height: 1.4 !important;
+        text-align: center;
+        padding: 0 1rem;
     }
     
     .mobile-menu-toggle {
         display: flex;
+        order: 3;
     }
     
     .mobile-menu-toggle.active span:nth-child(1) {

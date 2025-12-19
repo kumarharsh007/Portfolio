@@ -163,6 +163,10 @@ body {
     box-shadow: var(--glow-shadow);
 }
 
+.mobile-header-btn {
+    display: none !important;
+}
+
 .mobile-menu-toggle {
     display: none;
     flex-direction: column;
@@ -1270,14 +1274,41 @@ section {
         display: block;
     }
     
-    .resume-btn {
-        margin-top: 0.5rem;
-        padding: 0.6rem 1.2rem;
-        font-size: 0.9rem;
-        align-self: center;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
+    .nav .resume-btn {
+        display: none !important;
+    }
+    
+    .header .container {
+        position: relative;
+    }
+    
+    .header .container::after {
+        content: '';
+        position: fixed;
+        right: 60px;
+        top: 18px;
+        width: auto;
+        height: auto;
+        z-index: 1001;
+    }
+    
+    .resume-btn.mobile-header-btn {
+        position: fixed !important;
+        right: 80px !important;
+        top: 14px !important;
+        padding: 0.4rem 0.8rem !important;
+        font-size: 0.8rem !important;
+        margin: 0 !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 0.25rem !important;
+        z-index: 1001 !important;
+        order: initial !important;
+    }
+    
+    .mobile-menu-toggle {
+        position: relative;
+        z-index: 1001;
     }
     
     /* All sections get proper spacing from fixed header */

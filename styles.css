@@ -495,6 +495,8 @@ section {
     max-height: 300px;
     border-radius: 50%;
     object-fit: cover;
+    object-position: center center;
+    transform: scale(0.85);
     border: 3px solid var(--primary-color);
     box-shadow: var(--glow-shadow);
     transition: all 0.3s ease;

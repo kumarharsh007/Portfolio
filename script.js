@@ -1,8 +1,8 @@
 // Project navigation arrays - define which projects have which modal types
 const projectNavigationData = {
-    all: ['retention-dashboard', 'player-segmentation', 'ab-testing', 'revenue-optimization'],
-    documentation: ['ab-testing'], // Only project 3 has documentation
-    caseStudy: ['revenue-optimization'] // Only project 4 has case study
+    all: ['employee-retention'],
+    documentation: [],
+    caseStudy: []
 };
 
 // Smooth scrolling and navigation functionality
@@ -466,6 +466,18 @@ window.addEventListener('scroll', debouncedScroll);
 
 // Project Modal Functionality
 const projectData = {
+    'employee-retention': {
+        title: 'Employee Retention Prediction',
+        subtitle: 'Predictive ML model for HR analytics and employee turnover forecasting',
+        tech: ['Python', 'Scikit-learn', 'Pandas', 'Random Forest', 'Machine Learning'],
+        sections: {
+            overview: 'A comprehensive machine learning project analyzing HR data to identify key factors influencing employee turnover and develop predictive models for retention forecasting. The project uses various classification algorithms to help organizations improve their retention strategies.',
+            challenge: 'Organizations face high turnover rates that negatively impact productivity, morale, and overall performance. Understanding the factors that drive employees to leave is crucial for developing effective retention strategies, but traditional analysis methods often miss complex patterns in employee behavior.',
+            solution: 'Developed a complete data science pipeline including data preprocessing, exploratory data analysis (EDA), feature engineering, and model building. Implemented multiple machine learning algorithms including Logistic Regression, Decision Trees, Random Forest, and Gradient Boosting to predict employee turnover. Created visualizations to identify correlations and patterns in employee retention data.',
+            results: 'Successfully identified 8 key factors influencing employee retention including satisfaction level, number of projects, evaluation scores, and time spent at company. Built predictive models with high accuracy for forecasting turnover. Provided actionable insights and recommendations for HR teams to improve retention strategies through data-driven decision making.',
+            learnings: 'Gained hands-on experience with end-to-end machine learning workflows including data cleaning, handling missing values, encoding categorical variables, and feature scaling. Mastered supervised learning techniques and model evaluation using metrics like accuracy, precision, recall, and F1-score. Learned to translate complex ML results into business-actionable insights for HR strategy optimization.'
+        }
+    },
     'retention-dashboard': {
         title: 'Player Retention Dashboard',
         subtitle: 'Comprehensive dashboard tracking player retention metrics',

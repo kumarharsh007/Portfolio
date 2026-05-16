@@ -1,6 +1,6 @@
 // Project navigation arrays - define which projects have which modal types
 const projectNavigationData = {
-    all: ['employee-retention'],
+    all: ['employee-retention', 'madden-mobile-analytics'],
     documentation: [],
     caseStudy: []
 };
@@ -502,6 +502,18 @@ const projectData = {
             learnings: 'Mastered unsupervised learning techniques and gained insights into behavioral analytics. Learned to translate complex ML results into business-actionable recommendations.'
         }
     },
+    'madden-mobile-analytics': {
+        title: 'Madden Mobile Analytics',
+        subtitle: 'Live Ops and monetization insights for Madden Mobile',
+        tech: ['Python', 'R', 'SQL', 'Tableau', 'Live Ops'],
+        sections: {
+            overview: 'Delivered Madden Mobile analytics support by building behavioral segmentation, early player monetization analysis, program performance reporting, and mid-season feature evaluation.',
+            challenge: 'The Madden Mobile Live Ops team needed faster, more accurate insights into player behavior and monetization performance while maintaining legacy metadata workflows.',
+            solution: 'Built a behavioral segmentation framework to classify player cohorts, analyzed early player behavior and monetization drivers, and automated the legacy R metadata pipeline in Python to reduce manual loading.',
+            results: 'Enabled faster decision-making for Live Ops with actionable segment-level insights, improved monetization visibility, and reduced operational overhead through pipeline automation.',
+            learnings: 'Strengthened end-to-end analytics delivery for mobile live services and learned to translate data into high-impact product recommendations for feature and program planning.'
+        }
+    },
     'ab-testing': {
         title: 'A/B Testing Framework',
         subtitle: 'Automated framework for experiment analysis and statistical testing',
@@ -575,8 +587,8 @@ function openProjectModal(projectId) {
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
     
-    // Set current project for navigation
-    window.currentProjectIndex = Object.keys(projectData).indexOf(projectId);
+    // Set current project using the navigation array index
+    window.currentProjectIndex = projectNavigationData.all.indexOf(projectId);
     updateProjectNavigation();
 }
 
@@ -746,6 +758,9 @@ function openProjectModalGlobal(projectId) {
         // Handle case study modal for Revenue Optimization
         console.log('Opening case study for revenue-optimization'); // Debug log
         openCaseStudyModal('revenue-optimization');
+    } else if (projectId === 'madden-mobile-analytics-case-study') {
+        console.log('Opening case study for Madden Mobile Analytics');
+        openCaseStudyModal('madden-mobile-analytics');
     } else {
         // Handle regular project modal
         console.log('Opening regular modal for:', projectId); // Debug log

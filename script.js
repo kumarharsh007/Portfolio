@@ -4,6 +4,7 @@ const projectNavigationData = {
     documentation: [],
     caseStudy: []
 };
+let lastProjectTrigger = null;
 
 // Smooth scrolling and navigation functionality
 document.addEventListener('DOMContentLoaded', function() {
@@ -39,6 +40,9 @@ function initNavigation() {
             link.classList.remove('active');
             if (link.getAttribute('data-section') === current) {
                 link.classList.add('active');
+                link.setAttribute('aria-current', 'location');
+            } else {
+                link.removeAttribute('aria-current');
             }
         });
     }
@@ -89,19 +93,12 @@ function initScrollEffects() {
         observer.observe(section);
     });
     
-    // Parallax effect for hero background
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const parallax = document.querySelector('.hero-background');
-        if (parallax) {
-            parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
-        }
-        
-        // Header background opacity
-        const header = document.querySelector('.header');
-        const opacity = Math.min(scrolled / 100, 0.95);
-        header.style.background = `rgba(10, 10, 10, ${opacity})`;
-    });
+    const header = document.querySelector('.header');
+    const updateHeader = () => {
+        header?.classList.toggle('scrolled', window.scrollY > 24);
+    };
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    updateHeader();
 }
 
 // Skill bars animation
@@ -110,22 +107,25 @@ function initSkillBars() {
 }
 
 function animateSkillBars() {
+    const skills = document.querySelector('.skills');
+    if (!skills) return;
+
+    skills.classList.add('animated');
     const skillBars = document.querySelectorAll('.skill-progress');
     
     skillBars.forEach(bar => {
         const width = bar.getAttribute('data-width');
         if (width) {
-            setTimeout(() => {
-                bar.style.width = width + '%';
-            }, Math.random() * 500); // Stagger the animations
+            bar.style.setProperty('--skill-width', `${width}%`);
         }
     });
 }
 
 // Contact form functionality with EmailJS
 function initContactForm() {
-    // Initialize EmailJS with your public key
-    emailjs.init("CYiqForLdyqEWb4m5");
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init("CYiqForLdyqEWb4m5");
+    }
     
     const form = document.getElementById('contactForm');
     
@@ -148,6 +148,11 @@ function initContactForm() {
             
             if (!isValidEmail(email)) {
                 showNotification('Please enter a valid email address', 'error');
+                return;
+            }
+
+            if (typeof emailjs === 'undefined') {
+                showNotification('The contact service is unavailable. Please email me directly instead.', 'error');
                 return;
             }
             
@@ -219,12 +224,12 @@ function showNotification(message, type = 'success') {
         position: fixed;
         top: 100px;
         right: 20px;
-        background: ${type === 'success' ? 'linear-gradient(135deg, var(--primary-color), #00cc70)' : 'linear-gradient(135deg, var(--secondary-color), #ff3366)'};
+        background: ${type === 'success' ? 'linear-gradient(135deg, var(--brass-bright), var(--brass))' : 'linear-gradient(135deg, var(--rust), #6c3024)'};
         color: var(--primary-bg);
         padding: 1rem 1.5rem;
         border-radius: var(--border-radius);
         border: 2px solid ${type === 'success' ? 'var(--primary-color)' : 'var(--secondary-color)'};
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px ${type === 'success' ? 'rgba(0, 255, 136, 0.3)' : 'rgba(255, 0, 128, 0.3)'};
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px ${type === 'success' ? 'rgba(201, 163, 95, 0.25)' : 'rgba(161, 79, 54, 0.3)'};
         z-index: 10000;
         transform: translateX(400px);
         transition: all 0.3s ease;
@@ -269,8 +274,8 @@ function showNotification(message, type = 'success') {
     
     // Add hover effect to match modal close button
     closeBtn.addEventListener('mouseenter', () => {
-        closeBtn.style.color = '#ff0080';
-        closeBtn.style.background = 'rgba(255, 0, 128, 0.1)';
+        closeBtn.style.color = '#a14f36';
+        closeBtn.style.background = 'rgba(161, 79, 54, 0.1)';
         closeBtn.style.transform = 'scale(1.1)';
     });
     
@@ -309,25 +314,36 @@ function initMobileMenu() {
     const nav = document.querySelector('.nav');
     
     if (mobileToggle && nav) {
+        const setMenuOpen = (isOpen) => {
+            nav.classList.toggle('mobile-nav-open', isOpen);
+            mobileToggle.classList.toggle('active', isOpen);
+            mobileToggle.setAttribute('aria-expanded', String(isOpen));
+            mobileToggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+        };
+
         mobileToggle.addEventListener('click', () => {
-            nav.classList.toggle('mobile-nav-open');
-            mobileToggle.classList.toggle('active');
+            setMenuOpen(!nav.classList.contains('mobile-nav-open'));
         });
         
         // Close mobile menu when clicking on a link
         const mobileNavLinks = nav.querySelectorAll('a');
         mobileNavLinks.forEach(link => {
             link.addEventListener('click', () => {
-                nav.classList.remove('mobile-nav-open');
-                mobileToggle.classList.remove('active');
+                setMenuOpen(false);
             });
         });
         
         // Close mobile menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!nav.contains(e.target) && !mobileToggle.contains(e.target)) {
-                nav.classList.remove('mobile-nav-open');
-                mobileToggle.classList.remove('active');
+                setMenuOpen(false);
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && nav.classList.contains('mobile-nav-open')) {
+                setMenuOpen(false);
+                mobileToggle.focus();
             }
         });
     }
@@ -403,66 +419,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
 });
-
-// Cursor trail effect (optional gaming enhancement)
-function initCursorTrail() {
-    const trail = [];
-    const trailLength = 10;
-    
-    // Create trail elements
-    for (let i = 0; i < trailLength; i++) {
-        const dot = document.createElement('div');
-        dot.className = 'cursor-trail';
-        dot.style.cssText = `
-            position: fixed;
-            width: 4px;
-            height: 4px;
-            background: var(--primary-color);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            opacity: ${(trailLength - i) / trailLength};
-            transition: transform 0.1s ease;
-        `;
-        document.body.appendChild(dot);
-        trail.push(dot);
-    }
-    
-    // Update trail position
-    document.addEventListener('mousemove', (e) => {
-        trail.forEach((dot, index) => {
-            setTimeout(() => {
-                dot.style.left = e.clientX + 'px';
-                dot.style.top = e.clientY + 'px';
-            }, index * 20);
-        });
-    });
-}
-
-// Initialize cursor trail on larger screens
-if (window.innerWidth > 1024) {
-    initCursorTrail();
-}
-
-// Performance optimization: Debounce scroll events
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-// Apply debouncing to scroll events
-const debouncedScroll = debounce(() => {
-    // Any scroll-based animations or calculations can go here
-}, 10);
-
-window.addEventListener('scroll', debouncedScroll);
 
 // Project Modal Functionality
 const projectData = {
@@ -540,11 +496,23 @@ const projectData = {
     }
 };
 
+function showProjectDialog(modal) {
+    if (!modal.classList.contains('active')) {
+        lastProjectTrigger = document.activeElement;
+    }
+
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    modal.querySelector('.modal-close')?.focus();
+    modal.querySelector('.modal-content').scrollTop = 0;
+}
+
 function openProjectModal(projectId) {
     const modal = document.getElementById('projectModal');
     const project = projectData[projectId];
     
-    if (!project) return;
+    if (!project || !modal) return;
     
     // Update modal content
     document.getElementById('modalTitle').textContent = project.title;
@@ -583,9 +551,7 @@ function openProjectModal(projectId) {
         </div>
     `;
     
-    // Show modal
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    showProjectDialog(modal);
     
     // Set current project using the navigation array index
     window.currentProjectIndex = projectNavigationData.all.indexOf(projectId);
@@ -594,8 +560,14 @@ function openProjectModal(projectId) {
 
 function closeProjectModal() {
     const modal = document.getElementById('projectModal');
+    if (!modal || !modal.classList.contains('active')) return;
+
     modal.classList.remove('active');
-    document.body.style.overflow = 'auto';
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+    if (lastProjectTrigger instanceof HTMLElement && lastProjectTrigger.isConnected) {
+        lastProjectTrigger.focus();
+    }
 }
 
 function navigateProject(direction) {
@@ -613,6 +585,7 @@ function navigateProject(direction) {
     } else {
         projectArray = projectNavigationData.all;
     }
+    if (projectArray.length === 0) return;
     
     // Find current project index in the appropriate array
     const allProjects = projectNavigationData.all;
@@ -676,10 +649,28 @@ function updateProjectNavigation() {
     nextBtnInline.disabled = isDisabled;
 }
 
-// Close modal on escape key or outside click
+// Keep keyboard focus within the open dialog and support Escape dismissal.
 document.addEventListener('keydown', (e) => {
+    const modal = document.getElementById('projectModal');
+    if (!modal?.classList.contains('active')) return;
+
     if (e.key === 'Escape') {
         closeProjectModal();
+        return;
+    }
+
+    if (e.key !== 'Tab') return;
+    const focusable = modal.querySelectorAll('button:not(:disabled), a[href], input, textarea, [tabindex]:not([tabindex="-1"])');
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (!first || !last) return;
+
+    if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
     }
 });
 
@@ -710,8 +701,7 @@ function openDocumentationModal(projectId) {
         </div>
     `;
     
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    showProjectDialog(modal);
     
     // Set current project for navigation
     window.currentProjectIndex = Object.keys(projectData).indexOf(projectId);
@@ -738,8 +728,7 @@ function openCaseStudyModal(projectId) {
         </div>
     `;
     
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    showProjectDialog(modal);
     
     // Set current project for navigation
     window.currentProjectIndex = Object.keys(projectData).indexOf(projectId);

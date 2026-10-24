@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize all functionality
     initNavigation();
     initScrollEffects();
-    initSkillBars();
     initContactForm();
     initMobileMenu();
     initScrollIndicator();
@@ -76,10 +75,6 @@ function initScrollEffects() {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animate-in');
                 
-                // Trigger skill bars animation
-                if (entry.target.classList.contains('skills')) {
-                    animateSkillBars();
-                }
             }
         });
     }, {
@@ -99,26 +94,6 @@ function initScrollEffects() {
     };
     window.addEventListener('scroll', updateHeader, { passive: true });
     updateHeader();
-}
-
-// Skill bars animation
-function initSkillBars() {
-    // This will be triggered by the intersection observer
-}
-
-function animateSkillBars() {
-    const skills = document.querySelector('.skills');
-    if (!skills) return;
-
-    skills.classList.add('animated');
-    const skillBars = document.querySelectorAll('.skill-progress');
-    
-    skillBars.forEach(bar => {
-        const width = bar.getAttribute('data-width');
-        if (width) {
-            bar.style.setProperty('--skill-width', `${width}%`);
-        }
-    });
 }
 
 // Contact form functionality with EmailJS
@@ -459,15 +434,15 @@ const projectData = {
         }
     },
     'madden-mobile-analytics': {
-        title: 'Madden Mobile Analytics',
-        subtitle: 'Live Ops and monetization insights for Madden Mobile',
-        tech: ['Python', 'R', 'SQL', 'Tableau', 'Live Ops'],
+        title: 'Madden Mobile Analytics Suite',
+        subtitle: 'Player, Live Ops, and monetization analysis across 1M+ users',
+        tech: ['Python', 'SQL', 'Tableau', 'PrestoDB', 'Snowflake'],
         sections: {
-            overview: 'Delivered Madden Mobile analytics support by building behavioral segmentation, early player monetization analysis, program performance reporting, and mid-season feature evaluation.',
-            challenge: 'The Madden Mobile Live Ops team needed faster, more accurate insights into player behavior and monetization performance while maintaining legacy metadata workflows.',
-            solution: 'Built a behavioral segmentation framework to classify player cohorts, analyzed early player behavior and monetization drivers, and automated the legacy R metadata pipeline in Python to reduce manual loading.',
-            results: 'Enabled faster decision-making for Live Ops with actionable segment-level insights, improved monetization visibility, and reduced operational overhead through pipeline automation.',
-            learnings: 'Strengthened end-to-end analytics delivery for mobile live services and learned to translate data into high-impact product recommendations for feature and program planning.'
+            overview: 'Built an analytics suite for Madden Mobile covering behavioral segmentation, player profiling, early-player behavior and monetization, program performance, mid-season features, and Spotlight Pass analysis.',
+            challenge: 'Live Ops needed a coherent view of player behavior and feature performance to make timely content and monetization decisions across a large player base.',
+            solution: 'Used SQL, Python, Tableau, PrestoDB, and Snowflake to analyze player cohorts, progression, monetization, and program performance. Automated legacy R-based metadata workflows in Python.',
+            results: 'Growth-model insights contributed to a 12% improvement in D7 retention and an 18% reduction in weekly churn. Pipeline automation cut manual maintenance by 70%.',
+            learnings: 'Strengthened end-to-end analytics delivery for mobile live services, from reusable data workflows and segmentation to recommendations for feature and program planning.'
         }
     },
     'ab-testing': {

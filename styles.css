@@ -983,60 +983,32 @@ section {
     text-transform: uppercase;
 }
 
-.skill-item {
-    margin-top: 1.15rem;
+.skill-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
-.skill-label {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: 0.4rem;
-    color: #3d362b;
-    font-size: 0.73rem;
+.skill-tags li {
+    padding: 0.44rem 0.62rem;
+    border: 1px solid var(--line-light);
+    color: var(--text-ink-soft);
+    font-size: 0.71rem;
     font-weight: 600;
+    transition: border-color 160ms ease, color 160ms ease;
 }
 
-.skill-level {
-    color: var(--text-ink-soft);
-    font-size: 0.63rem;
-    font-variant-numeric: tabular-nums;
-}
-
-.skill-bar {
-    height: 5px;
-    overflow: hidden;
-    background: rgba(45, 37, 25, 0.14);
-}
-
-.skill-progress {
-    display: block;
-    width: 0;
-    height: 100%;
-    background: linear-gradient(90deg, var(--rust), #c18c50);
-    transition: width 850ms cubic-bezier(0.2, 0.7, 0.25, 1);
-}
-
-.skills.animated .skill-progress {
-    width: var(--skill-width, 0);
-}
-
-.skills-note {
-    display: flex;
-    align-items: center;
-    gap: 0.55rem;
-    margin: 1.2rem 0 0;
-    color: var(--text-ink-soft);
-    font-size: 0.7rem;
-}
-
-.skills-note i {
+.skill-tags li:hover {
+    border-color: rgba(161, 79, 54, 0.55);
     color: var(--rust);
 }
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.25rem;
     align-items: stretch;
 }
@@ -1079,6 +1051,12 @@ section {
     background:
         radial-gradient(ellipse at 50% 50%, rgba(161, 79, 54, 0.25), transparent 50%),
         linear-gradient(142deg, #38271e, #201b15 73%);
+}
+
+.project-image-cfbm {
+    background:
+        radial-gradient(ellipse at 50% 50%, rgba(135, 139, 94, 0.22), transparent 50%),
+        linear-gradient(142deg, #353729, #201d15 73%);
 }
 
 .project-image-upcoming {
@@ -1210,7 +1188,7 @@ section {
 
 .games-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 1.25rem;
 }
 

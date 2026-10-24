@@ -2,16 +2,16 @@
 
 A responsive, game-inspired portfolio for showcasing Harsh Swami’s product analytics work at Electronic Arts. The visual direction takes high-level cues from cinematic western game menus—frontier landscapes, chapter markers, a compass-like quick-navigation wheel, warm paper, dark wood, and brass details—while keeping the work and professional story easy to scan.
 
-The design is original and does not use third-party game logos or artwork. Interactions are intentionally light: chapter links, a responsive navigation menu, and accessible project case-file dialogs. The site respects reduced-motion preferences and works without a build step.
+The design is original and does not use third-party game logos or artwork. Interactions are intentionally light: chapter links, a responsive navigation menu, project case-file dialogs, and skill-bar reveals. The site respects reduced-motion preferences and works without a build step.
 
 ## Portfolio sections
 
 - **Introduction:** Role, focus, resume, and quick chapter navigation.
 - **About:** Product analytics approach and player-first perspective.
-- **Experience:** Work at Electronic Arts across Real Racing 3, NBA Live Mobile, Madden Mobile, and College Football Mobile; plus Netcracker Technology and Azentio.
-- **Skills:** Analytics tools, player and product analytics, and AI-augmented data workflows.
+- **Experience:** Work at Electronic Arts, Netcracker Technology, and Azentio.
+- **Skills:** Analytics tools, gaming analytics methods, and developing skills.
 - **Selected work:** Project summaries, GitHub link, and case-file dialogs.
-- **Gameography:** Contributions to Real Racing 3, NBA Live Mobile, Madden Mobile, and College Football Mobile.
+- **Gameography:** Contributions to Real Racing 3, NBA Live Mobile, and Madden Mobile.
 - **Contact:** Email, LinkedIn, GitHub, and contact form.
 
 ## Run locally

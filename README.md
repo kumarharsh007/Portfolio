@@ -1,29 +1,29 @@
 # Harsh Swami — Product Analyst Portfolio
 
-A responsive, game-inspired portfolio for showcasing Harsh Swami’s product analytics work at Electronic Arts. The visual direction takes high-level cues from cinematic western game menus—frontier landscapes, chapter markers, a compass-like quick-navigation wheel, warm paper, dark wood, and brass details—while keeping the work and professional story easy to scan.
-
-The design is original and does not use third-party game logos or artwork. Interactions are intentionally light: chapter links, a responsive navigation menu, project case-file dialogs, and skill-bar reveals. The site respects reduced-motion preferences and works without a build step.
+A responsive portfolio for Harsh Swami, an Associate Product Analyst at Electronic Arts. The visual direction is a light, minimal interface with translucent glass panels, soft blue accents, and restrained motion. The content focuses on product analytics and player behavior without relying on game-themed visual motifs.
 
 ## Portfolio sections
 
-- **Introduction:** Role, focus, resume, and quick chapter navigation.
-- **About:** Product analytics approach and player-first perspective.
-- **Experience:** Work at Electronic Arts, Netcracker Technology, and Azentio.
-- **Skills:** Analytics tools, gaming analytics methods, and developing skills.
-- **Selected work:** Project summaries, GitHub link, and case-file dialogs.
-- **Gameography:** Contributions to Real Racing 3, NBA Live Mobile, and Madden Mobile.
-- **Contact:** Email, LinkedIn, GitHub, and contact form.
+- **Introduction:** Role, focus, selected work, and resume link.
+- **About:** Product analytics approach and focus areas.
+- **Experience:** Roles at Electronic Arts, Netcracker Technology, and Azentio.
+- **Selected work:** Expandable case studies on Madden Mobile behavioral segmentation, early-player signals, program completion, and an AI-enabled game-data context workflow; anomaly detection is marked as ongoing.
+- **Skills:** AI-assisted workflows, machine learning, product analytics, SQL, Python, Tableau, and data quality.
+- **Approach:** Outcome, driver, and guardrail framing for evidence-led product analysis.
+- **Contact:** Email, LinkedIn, and GitHub.
+
+Case studies intentionally omit internal figures and source visuals. Project findings are described as observational where appropriate; do not add internal details or EA materials without approval.
+
+AI tools are presented as workflow assistants, not substitutes for analysis. Game-specific skill files and Markdown references provide table, column, and metric context; they do not train the underlying AI model or guarantee correct answers. AI-generated suggestions should be reviewed against source data, code, and product definitions. No quantified time savings or business impact is claimed.
+
+The anomaly-detection project is in progress. Methods, thresholds, and outcomes are not final, and no detection performance or business impact is claimed.
 
 ## Run locally
 
-This is a static site; there are no package dependencies or build commands. Open `index.html` in a browser, or serve the `Portfolio` folder with any local static-file server.
+This is a static site with no package dependencies or build step. Open `index.html` in a browser, or serve the `Portfolio` folder with a local static-file server.
 
-The resume is linked at `assets/HARSH_SWAMI_Resume.pdf`. Keep the file at that path when deploying.
-
-## Contact form
-
-The contact form uses EmailJS. Its public key, service ID, and template ID are configured in `script.js`. Update those values if you connect the portfolio to a different EmailJS account. If EmailJS does not load, the form reports that the service is unavailable and provides the direct email link.
+The current resume link points to `assets/HARSH_SWAMI_Resume.pdf`. The resume itself is not part of this portfolio update.
 
 ## Deploy
 
-The folder can be deployed to GitHub Pages or another static host. Publish the complete `Portfolio` directory so the stylesheet, script, favicon, and assets remain alongside `index.html`.
+Deploy the complete `Portfolio` directory so the stylesheet, script, favicon, and assets remain alongside `index.html`.

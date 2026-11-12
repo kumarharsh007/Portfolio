@@ -2,6 +2,8 @@
 
 A responsive portfolio for Harsh Swami, an Associate Product Analyst at Electronic Arts. The visual direction is a light, minimal interface with translucent glass panels, soft blue accents, and restrained motion. The content focuses on product analytics and player behavior without relying on game-themed visual motifs.
 
+The portfolio defaults to dark mode and remembers a manual light/dark choice in browser storage.
+
 ## Portfolio sections
 
 - **Introduction:** Role, focus, selected work, and resume link.

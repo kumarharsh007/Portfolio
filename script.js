@@ -1,9 +1,41 @@
 document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('.site-header');
     const menuToggle = document.querySelector('.menu-toggle');
+    const themeToggle = document.querySelector('.theme-toggle');
     const navigation = document.querySelector('.primary-nav');
     const navLinks = [...document.querySelectorAll('.primary-nav a[href^="#"]')];
     const sections = [...document.querySelectorAll('main section[id]')];
+    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+    let savedTheme = null;
+    try {
+        savedTheme = localStorage.getItem('portfolio-theme');
+    } catch {
+        savedTheme = null;
+    }
+
+    let hasManualTheme = savedTheme === 'light' || savedTheme === 'dark';
+
+    const setTheme = (theme) => {
+        document.documentElement.dataset.theme = theme;
+        const isDark = theme === 'dark';
+        themeToggle?.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+        themeToggle?.setAttribute('title', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+        themeToggle?.setAttribute('aria-pressed', String(isDark));
+        themeColorMeta?.setAttribute('content', isDark ? '#111725' : '#f5f7fb');
+    };
+
+    setTheme(hasManualTheme ? savedTheme : 'dark');
+
+    themeToggle?.addEventListener('click', () => {
+        const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+        hasManualTheme = true;
+        setTheme(nextTheme);
+        try {
+            localStorage.setItem('portfolio-theme', nextTheme);
+        } catch {
+            // The chosen theme remains active for this page view when storage is unavailable.
+        }
+    });
 
     const updateHeader = () => {
         header?.classList.toggle('scrolled', window.scrollY > 16);

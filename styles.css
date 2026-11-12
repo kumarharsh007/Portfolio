@@ -19,6 +19,24 @@
     --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 }
 
+html[data-theme="dark"] {
+    color-scheme: dark;
+    --page: #111725;
+    --page-tint: #171f30;
+    --ink: #f0f3fa;
+    --ink-soft: #d3dbea;
+    --muted: #a7b2c5;
+    --faint: #8995aa;
+    --accent: #91aaff;
+    --accent-deep: #b1c2ff;
+    --accent-wash: rgba(99, 127, 211, 0.18);
+    --line: rgba(183, 199, 231, 0.14);
+    --glass: rgba(31, 41, 60, 0.78);
+    --glass-strong: rgba(35, 46, 66, 0.9);
+    --shadow: 0 24px 70px rgba(0, 0, 0, 0.26);
+    --shadow-soft: 0 14px 40px rgba(0, 0, 0, 0.2);
+}
+
 * {
     box-sizing: border-box;
 }
@@ -156,6 +174,49 @@ a {
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.67);
     color: var(--accent-deep);
+}
+
+.primary-nav .theme-toggle {
+    display: grid;
+    width: 36px;
+    height: 36px;
+    flex: 0 0 auto;
+    place-items: center;
+    padding: 0;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: var(--glass);
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: color 160ms ease, border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.primary-nav .theme-toggle:hover {
+    transform: translateY(-1px);
+    border-color: rgba(70, 109, 224, 0.3);
+    color: var(--accent-deep);
+}
+
+.theme-icon {
+    width: 17px;
+    height: 17px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.7;
+}
+
+.theme-icon-sun {
+    display: none;
+}
+
+html[data-theme="dark"] .theme-icon-moon {
+    display: none;
+}
+
+html[data-theme="dark"] .theme-icon-sun {
+    display: block;
 }
 
 .menu-toggle {
@@ -1211,6 +1272,15 @@ a {
         border: 1px solid rgba(70, 109, 224, 0.18);
     }
 
+    .primary-nav .theme-toggle {
+        width: 100%;
+        height: 42px;
+        justify-content: center;
+        margin: 0.25rem 0;
+        border-radius: 12px;
+        border-bottom: 1px solid var(--line);
+    }
+
     .hero {
         min-height: auto;
         padding: 7.4rem 0 5.5rem;
@@ -1365,4 +1435,114 @@ a {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
+}
+
+html[data-theme="dark"] body {
+    background: var(--page);
+}
+
+html[data-theme="dark"] ::selection {
+    background: rgba(145, 170, 255, 0.35);
+    color: var(--ink);
+}
+
+html[data-theme="dark"] .site-header {
+    border-bottom-color: rgba(195, 207, 231, 0.1);
+    background: rgba(17, 23, 37, 0.78);
+}
+
+html[data-theme="dark"] .site-header.scrolled {
+    background: rgba(17, 23, 37, 0.93);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.22);
+}
+
+html[data-theme="dark"] .primary-nav .nav-resume {
+    border-color: rgba(145, 170, 255, 0.22);
+    background: rgba(45, 59, 88, 0.55);
+}
+
+html[data-theme="dark"] .brand-mark {
+    border-color: rgba(145, 170, 255, 0.24);
+    background: linear-gradient(145deg, #29344c, #1a2336);
+}
+
+html[data-theme="dark"] .hero {
+    background:
+        radial-gradient(ellipse at 75% 15%, rgba(61, 78, 126, 0.32), transparent 34rem),
+        radial-gradient(ellipse at 9% 85%, rgba(40, 62, 92, 0.3), transparent 29rem),
+        linear-gradient(180deg, #121a2a, #111725);
+}
+
+html[data-theme="dark"] .ambient {
+    border-color: rgba(176, 195, 239, 0.11);
+    background: linear-gradient(145deg, rgba(151, 174, 231, 0.06), rgba(214, 224, 255, 0.015));
+}
+
+html[data-theme="dark"] .section-tint {
+    background:
+        radial-gradient(ellipse at 88% 0%, rgba(61, 78, 126, 0.22), transparent 34rem),
+        linear-gradient(180deg, #151d2d, #171f30);
+}
+
+html[data-theme="dark"] .profile-image-wrap {
+    background: #222b3b;
+}
+
+html[data-theme="dark"] .profile-tags span,
+html[data-theme="dark"] .case-tags span,
+html[data-theme="dark"] .tool-tags span {
+    border-color: rgba(183, 199, 231, 0.13);
+    background: rgba(16, 23, 37, 0.46);
+    color: var(--ink-soft);
+}
+
+html[data-theme="dark"] .focus-strip {
+    background: rgba(31, 41, 60, 0.66);
+}
+
+html[data-theme="dark"] .experience-card,
+html[data-theme="dark"] .case-card,
+html[data-theme="dark"] .skill-card,
+html[data-theme="dark"] .approach-card {
+    border-color: rgba(195, 207, 231, 0.1);
+    background-color: var(--glass);
+}
+
+html[data-theme="dark"] .date-label {
+    border-color: var(--line);
+    background: rgba(16, 23, 37, 0.45);
+}
+
+html[data-theme="dark"] .case-body .case-caveat {
+    border-color: rgba(145, 170, 255, 0.18);
+    background: rgba(76, 96, 147, 0.18);
+}
+
+html[data-theme="dark"] .in-progress-badge {
+    color: #bfd69b;
+}
+
+html[data-theme="dark"] .contact-panel {
+    border-color: rgba(195, 207, 231, 0.12);
+    background:
+        radial-gradient(ellipse at 100% 0%, rgba(61, 78, 126, 0.32), transparent 31rem),
+        rgba(31, 41, 60, 0.86);
+}
+
+html[data-theme="dark"] .site-footer {
+    border-top-color: rgba(195, 207, 231, 0.1);
+    background: #0e1420;
+}
+
+html[data-theme="dark"] .skip-link {
+    background: #202b40;
+    color: var(--ink);
+}
+
+@media (max-width: 720px) {
+    html[data-theme="dark"] .primary-nav {
+        border-color: rgba(195, 207, 231, 0.12);
+        background: rgba(24, 33, 50, 0.95);
+    }
+
 }

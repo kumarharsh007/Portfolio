@@ -9,6 +9,18 @@
     <meta property="og:description" content="Product analytics, player behavior, and selected work at Electronic Arts.">
     <meta property="og:type" content="website">
     <title>Harsh Swami — Product Analyst</title>
+    <script>
+        (() => {
+            let theme;
+            try {
+                theme = localStorage.getItem('portfolio-theme');
+            } catch {
+                theme = null;
+            }
+            if (theme !== 'light' && theme !== 'dark') theme = 'dark';
+            document.documentElement.dataset.theme = theme;
+        })();
+    </script>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="icon" type="image/svg+xml" sizes="16x16" href="favicon-16x16.svg">
     <link rel="stylesheet" href="styles.css?v=20261112">
@@ -33,6 +45,10 @@
                 <a href="#approach">Approach</a>
                 <a href="#contact">Contact</a>
                 <a class="nav-resume" href="assets/HARSH_SWAMI_Resume.pdf" download="Harsh_Swami_Resume.pdf">Resume <span aria-hidden="true">↗</span></a>
+                <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode">
+                    <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.1A8.3 8.3 0 0 1 8.9 3.8 8.5 8.5 0 1 0 20.2 15.1Z"/></svg>
+                    <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+                </button>
             </nav>
         </div>
     </header>

@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeColorMeta = document.querySelector('meta[name="theme-color"]');
     let savedTheme = null;
     try {
-        savedTheme = localStorage.getItem('portfolio-theme');
+        savedTheme = localStorage.getItem('portfolio-theme-v2');
     } catch {
         savedTheme = null;
     }
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         hasManualTheme = true;
         setTheme(nextTheme);
         try {
-            localStorage.setItem('portfolio-theme', nextTheme);
+            localStorage.setItem('portfolio-theme-v2', nextTheme);
         } catch {
             // The chosen theme remains active for this page view when storage is unavailable.
         }
